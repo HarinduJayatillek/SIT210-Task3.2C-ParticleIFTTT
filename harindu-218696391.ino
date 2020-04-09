@@ -15,10 +15,11 @@ void setup() {
 void loop() {
 
       int lightLevel = analogRead(photoResistor);  // reading the photo resistor value
-      
+      int i = 1;    
+  
       // classify whether the sun hits the terrarium or not
-      if (lightLevel < 100) Particle.publish("sun", "setting", PRIVATE);
-      if (lightLevel >= 100) Particle.publish("sun", "rising", PRIVATE);
+       if (lightLevel >= i ) Particle.publish("sun", "up", PRIVATE);
+       if (lightLevel < i) Particle.publish("sun", "down", PRIVATE);
 
       delay(10000);
     
